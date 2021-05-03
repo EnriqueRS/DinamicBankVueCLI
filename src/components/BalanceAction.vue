@@ -1,11 +1,16 @@
 <template>
-  <button>{{ text }} Money</button>
+  <button @click="action">{{ text }} Money</button>
 </template>
 
 <script>
 export default {
     props: {
         text: String
+    },
+    methods: {
+        action(){
+            this.$emit('action')
+        }
     }
 
 }

@@ -5,8 +5,14 @@
   <div v-for="(item, index) in services" :key="index">
       {{index+1}} - {{ item }}
   </div>
-  <balance-action text = 'Add'></balance-action>
-  <balance-action text = 'Decrease'></balance-action>
+  <balance-action 
+    text = 'Add'
+    @action="addMoney"
+  />
+  <balance-action
+    text = 'Decrease'
+    @action="decreaseMoney"
+  />
 </template>
 
 <script>
