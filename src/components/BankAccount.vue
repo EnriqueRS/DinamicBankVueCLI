@@ -1,11 +1,38 @@
 <template>
-  <h1>Bank Account</h1>
+<h2>Account Type: {{type}}</h2>
+  <h2>Saldo: {{ money }}</h2>
+  <h2>Account: {{ state ? 'Enabled' : 'Disabled' }}</h2>
+  <div v-for="(item, index) in services" :key="index">
+      {{index+1}} - {{ item }}
+  </div>
+  <balance-action text = 'Add'></balance-action>
+  <balance-action text = 'Decrease'></balance-action>
 </template>
 
 <script>
-export default {
-    name: 'BankAccount'
+import BalanceAction from './BalanceAction'
 
+export default {
+    name: 'BankAccount',
+    data() {
+        return {
+            money: 1000,
+            type: 'Visa',
+            'state': true,
+            services: ['Payments', 'Money Transfers', 'Bank Transfers']
+        }
+    },
+    components: { 
+        BalanceAction
+    },
+    methods: {
+        addMoney() {
+            this.money += 100
+        },
+        decreaseMoney () {
+            this.money -= 100
+        }
+    }
 }
 </script>
 
