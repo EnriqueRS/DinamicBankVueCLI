@@ -1,11 +1,15 @@
 <template>
-  <button @click="action">{{ text }} Money</button>
+  <button :class="disable" @click="action" :disabled="disable">{{ text }} Money</button>
 </template>
 
 <script>
 export default {
     props: {
-        text: String
+        text: String,
+        disable: {
+            type: Boolean,
+            default: false
+        }
     },
     methods: {
         action(){
